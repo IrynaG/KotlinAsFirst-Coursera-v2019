@@ -92,7 +92,7 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = sqrt((
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int = (number.div(100)%(10))
 
 /**
  * Простая
@@ -118,4 +118,4 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = initial.toDouble()
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int = 100*(number%10)+10*(number.div(10)%10)+number.div(10).div(10)
