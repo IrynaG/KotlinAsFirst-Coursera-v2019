@@ -73,10 +73,18 @@ fun ageDescription(age: Int): String = TODO()
  * Определить, за какое время он одолел первую половину пути?
  */
 fun timeForHalfWay(
-    t1: Double, v1: Double,
-    t2: Double, v2: Double,
-    t3: Double, v3: Double
-): Double = TODO()
+        t1: Double, v1: Double,
+        t2: Double, v2: Double,
+        t3: Double, v3: Double): Double {
+    val s1 = t1 * v1
+    val s2 = t2 * v2
+    val s3 = t3 * v3
+    val sFirst = (s1 + s2 + s3) / 2
+    return if (sFirst <= s1) sFirst / v1
+    else if (sFirst <= s1+s2) (sFirst-s1) / v2 + t1
+    else (sFirst-s1-s2) / v3 + t1 + t2
+
+}
 
 /**
  * Простая
@@ -88,9 +96,9 @@ fun timeForHalfWay(
  * Считать, что ладьи не могут загораживать друг друга
  */
 fun whichRookThreatens(
-    kingX: Int, kingY: Int,
-    rookX1: Int, rookY1: Int,
-    rookX2: Int, rookY2: Int
+        kingX: Int, kingY: Int,
+        rookX1: Int, rookY1: Int,
+        rookX2: Int, rookY2: Int
 ): Int = TODO()
 
 /**
@@ -104,9 +112,9 @@ fun whichRookThreatens(
  * Считать, что ладья и слон не могут загораживать друг друга.
  */
 fun rookOrBishopThreatens(
-    kingX: Int, kingY: Int,
-    rookX: Int, rookY: Int,
-    bishopX: Int, bishopY: Int
+        kingX: Int, kingY: Int,
+        rookX: Int, rookY: Int,
+        bishopX: Int, bishopY: Int
 ): Int = TODO()
 
 /**
