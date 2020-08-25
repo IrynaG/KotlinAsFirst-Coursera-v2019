@@ -4,6 +4,7 @@ package lesson2.task1
 
 import lesson1.task1.discriminant
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sqrt
 
@@ -107,7 +108,14 @@ fun whichRookThreatens(
         kingX: Int, kingY: Int,
         rookX1: Int, rookY1: Int,
         rookX2: Int, rookY2: Int
-): Int = TODO()
+): Int {
+    return when {
+        kingX == rookX1 && kingY == rookY2 || kingX == rookX2 && kingY == rookY1 || kingX == rookX1 && kingX == rookX2 || kingY == rookY2 && kingY == rookY1  -> 3
+        kingX == rookX1 || kingY == rookY1 -> 1
+        kingX == rookX2 || kingY == rookY2 -> 2
+        else -> 0
+    }
+}
 
 /**
  * Простая
@@ -123,7 +131,16 @@ fun rookOrBishopThreatens(
         kingX: Int, kingY: Int,
         rookX: Int, rookY: Int,
         bishopX: Int, bishopY: Int
-): Int = TODO()
+): Int {
+    val x = abs(kingX - bishopX)
+    val y = abs(kingY - bishopY)
+    return when {
+        kingX == rookX && x == y || x == y && kingY == rookY -> 3
+        kingX == rookX || kingY == rookY -> 1
+        x == y -> 2
+        else -> 0
+    }
+}
 
 /**
  * Простая
