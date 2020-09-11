@@ -53,11 +53,11 @@ fun isPerfect(n: Int): Boolean {
  * Найти число вхождений цифры m в число n
  */
 fun digitCountInNumber(n: Int, m: Int): Int =
-    when {
-        n == m -> 1
-        n < 10 -> 0
-        else -> digitCountInNumber(n / 10, m) + digitCountInNumber(n % 10, m)
-    }
+        when {
+            n == m -> 1
+            n < 10 -> 0
+            else -> digitCountInNumber(n / 10, m) + digitCountInNumber(n % 10, m)
+        }
 
 /**
  * Простая
@@ -75,7 +75,19 @@ fun digitNumber(n: Int): Int = TODO()
  * Найти число Фибоначчи из ряда 1, 1, 2, 3, 5, 8, 13, 21, ... с номером n.
  * Ряд Фибоначчи определён следующим образом: fib(1) = 1, fib(2) = 1, fib(n+2) = fib(n) + fib(n+1)
  */
-fun fib(n: Int): Int = TODO()
+fun fib(n: Int): Int {
+    var result1 = 1
+    var result2 = 1
+    if (n == 1) return result1
+    else if (n == 2) return result2
+    else for (i in 3..n) {
+        val result3 = result1 + result2
+        result1 = result2
+        result2 = result3
+    }
+    return result2
+}
+
 
 /**
  * Простая
