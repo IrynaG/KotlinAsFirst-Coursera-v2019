@@ -123,7 +123,16 @@ fun maxDivisor(n: Int): Int = TODO()
  * Взаимно простые числа не имеют общих делителей, кроме 1.
  * Например, 25 и 49 взаимно простые, а 6 и 8 -- нет.
  */
-fun isCoPrime(m: Int, n: Int): Boolean = TODO()
+fun isCoPrime(m: Int, n: Int): Boolean {
+    if (m == n) return false
+    if (m > n) for (i in 2..n) {
+         if (m % i == 0 && n % i == 0) return false
+    }
+    else for (i in 2..m) {
+         if (m % i == 0 && n % i == 0) return false
+    }
+    return true
+}
 
 /**
  * Простая
