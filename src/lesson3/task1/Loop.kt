@@ -67,7 +67,15 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun digitNumber(n: Int): Int = TODO()
+fun digitNumber(n: Int): Int {
+    var count = 1
+    var number = n
+    while (number >= 10) {
+        number = number.div(10)
+        count++
+    }
+    return count
+}
 
 /**
  * Простая
@@ -100,7 +108,25 @@ fun fibs(n: Int): Int {
  * Для заданных чисел m и n найти наименьшее общее кратное, то есть,
  * минимальное число k, которое делится и на m и на n без остатка
  */
-fun lcm(m: Int, n: Int): Int = TODO()
+fun lcm(m: Int, n: Int): Int {
+    var first = m
+    var second = n
+    var gcd = 0
+    var lcm = first * second
+    if (first == second) gcd = first
+    while (first != second) {
+        if (first > second) {
+            first -= second
+            gcd = first
+        } else {
+            second -= first
+            gcd = second
+        }
+    }
+    lcm = lcm.div(gcd)
+    return lcm
+
+}
 
 /**
  * Простая
@@ -126,10 +152,10 @@ fun maxDivisor(n: Int): Int = TODO()
 fun isCoPrime(m: Int, n: Int): Boolean {
     if (m == n) return false
     if (m > n) for (i in 2..n) {
-         if (m % i == 0 && n % i == 0) return false
+        if (m % i == 0 && n % i == 0) return false
     }
     else for (i in 2..m) {
-         if (m % i == 0 && n % i == 0) return false
+        if (m % i == 0 && n % i == 0) return false
     }
     return true
 }
